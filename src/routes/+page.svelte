@@ -269,14 +269,27 @@
   }
 </script>
 
-<svelte:head><title>Spinnenwebben — Scorekeeper</title></svelte:head>
+<svelte:head>
+  <title>Spellenkast — zes spellen voor aan tafel</title>
+  <meta name="description" content="Zes klassieke kaart- en dobbelspellen in één offline spellenkast." />
+  <meta name="theme-color" content="#f7f5ef" />
+</svelte:head>
 
 <a class="skip-link" href="#app-content">Skip to game content</a>
 <main id="app-content" class="papereye-app" class:playing={screen === 'game'} tabindex="-1">
   {#if screen === 'home'}
     <section class="home page-shell">
       <div class="home-marquee" aria-hidden="true"><div><span>◆ Fully offline</span><span>◆ Six tabletop games</span><span>◆ Digital or bring your own</span><span>◆ No account required</span><span>◆ Fully offline</span><span>◆ Six tabletop games</span><span>◆ Digital or bring your own</span><span>◆ No account required</span></div></div>
-      <header class="home-brand"><span class="home-mark">S</span><strong>Spellenkast</strong><small>Tabletop archive</small></header>
+      <header class="home-brand">
+        <span class="home-mark" aria-hidden="true">S</span>
+        <span class="home-wordmark"><strong>Spellenkast</strong><small>Tabletop archive</small></span>
+        <nav aria-label="Collectie-overzicht">
+          <a href="#games"><i>01</i> Kaarten</a>
+          <a href="#games"><i>02</i> Dobbelstenen</a>
+          <a href="#games"><i>03</i> Zes spellen</a>
+        </nav>
+        <span class="offline-stamp">Offline klaar</span>
+      </header>
       <div class="masthead-rule"><span>VOL. I — NO. 06</span><b>OFFLINE GAME CABINET</b><span>EST. 2026</span></div>
       <div class="hero-copy">
         <p class="home-eyebrow">A pocket-sized game night</p>
@@ -284,6 +297,7 @@
         <p class="home-intro">“Six familiar tables, ready wherever the evening takes you.”</p>
       </div>
       <div class="home-double-rule"></div>
+      <div class="collection-heading" id="games"><span>De collectie</span><b>Kies een tafel</b><span>01—06</span></div>
       <div class="game-grid">
         <button class="game-card available" on:click={() => screen = 'setup'}>
           <span class="web-art" aria-hidden="true"><i></i><i></i><i></i><i></i></span>

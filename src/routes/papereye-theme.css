@@ -295,3 +295,241 @@ body, button, input, select { font-family: Georgia, serif; }
   .papereye-app :where(button,input,select,textarea,.card,.playing-card,.table-card) { forced-color-adjust: auto; border: 2px solid ButtonText !important; }
   .papereye-app :where(button):focus-visible { outline: 4px solid Highlight !important; }
 }
+
+/* PaperEye edition 02 — one editorial system across every game */
+:root {
+  --pe-ink: #181817;
+  --pe-paper: #f8f7f2;
+  --pe-white: #fffefa;
+  --pe-newsprint: #eeede7;
+  --pe-muted: #5f5d56;
+  --pe-blue: #243c88;
+  --pe-red: #b62c27;
+  --pe-orange: #c87824;
+  --pe-green: #347a48;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--pe-paper); }
+::selection { background: var(--pe-red); color: #fff; }
+.papereye-app {
+  background-color: var(--pe-paper) !important;
+  background-image: radial-gradient(#1818170a .55px, transparent .55px);
+  background-size: 5px 5px;
+}
+.papereye-app button { font-family: Georgia, 'Times New Roman', serif; }
+
+/* Setup pages read like the opening spread of a printed game manual. */
+.papereye-app :is(.setup,.box-setup,.y-setup,.bj-setup,.h-setup,.ld-setup) {
+  position: relative;
+  width: min(1180px, calc(100% - 48px)) !important;
+  padding-top: 24px !important;
+  padding-bottom: 76px !important;
+}
+.papereye-app :is(.setup,.box-setup,.y-setup,.bj-setup,.h-setup,.ld-setup)::before {
+  content: 'SPELLENKAST  /  SPELDOSSIER';
+  position: absolute;
+  top: 31px;
+  right: 0;
+  color: var(--pe-muted);
+  font: 900 8px ui-monospace, monospace;
+  letter-spacing: .18em;
+}
+.papereye-app :is(.setup,.box-setup,.y-setup,.bj-setup,.h-setup,.ld-setup) > :is(.back,.text-button) {
+  margin-right: 8px;
+}
+.papereye-app :is(.setup-heading h1,.box-setup>h1,.y-setup>h1,.bj-setup>h1,.h-setup>h1,.ld-setup>h1) {
+  position: relative;
+  margin-top: 24px !important;
+  padding-top: clamp(50px, 7vw, 88px) !important;
+  padding-right: min(20vw, 220px) !important;
+  border-top: 2px solid var(--pe-ink);
+  border-bottom: 7px double var(--pe-ink) !important;
+}
+.papereye-app :is(.setup-heading h1,.box-setup>h1,.y-setup>h1,.bj-setup>h1,.h-setup>h1,.ld-setup>h1)::after {
+  content: 'SETUP  /  01';
+  position: absolute;
+  top: 18px;
+  right: 0;
+  color: var(--game-accent);
+  font: 900 9px ui-monospace, monospace;
+  letter-spacing: .18em;
+}
+.papereye-app :is(.setup-grid) {
+  overflow: hidden;
+  margin-top: 28px;
+  border-width: 3px !important;
+  box-shadow: 8px 8px 0 var(--pe-ink) !important;
+}
+.papereye-app :is(.panel,.setup-panel) {
+  min-width: 0;
+  padding: 30px 32px !important;
+}
+.papereye-app :is(.panel,.setup-panel) header,
+.papereye-app .panel-title { margin-bottom: 22px; }
+.papereye-app :is(.names,.player-inputs) { gap: 11px !important; }
+.papereye-app :is(.names,.player-inputs) label { min-height: 55px; }
+.papereye-app :is(.names,.player-inputs) label button { min-width: 44px; min-height: 44px; }
+.papereye-app :is(.mode,.mode-choice,.play-mode) { box-shadow: 3px 3px 0 var(--pe-ink); }
+.papereye-app :is(.start,.primary.start,.bj-setup>.primary) {
+  min-width: min(300px, 100%) !important;
+  min-height: 62px;
+  margin-top: 32px !important;
+}
+
+/* The live tables use the same masthead and data vocabulary. */
+.papereye-app :is(.game-screen,.box-game,.y-game,.bj-game,.h-game,.ld-game,.own) {
+  background: var(--pe-newsprint) !important;
+}
+.papereye-app :is(.game-topbar,.topbar,.top) {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  display: grid;
+  min-height: 78px;
+  padding: 0 22px !important;
+  border-top: 8px solid var(--game-accent) !important;
+  border-bottom: 3px solid var(--pe-ink) !important;
+  box-shadow: 0 3px 0 #ffffff99;
+}
+.papereye-app :is(.game-topbar,.topbar,.top) > div {
+  align-self: stretch;
+  display: flex;
+  min-width: 190px;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid #d6d4cc;
+  border-left: 1px solid #d6d4cc;
+}
+.papereye-app :is(.game-topbar,.topbar,.top) :is(.brand,.box-brand),
+.papereye-app :is(.game-topbar,.topbar,.top)>button:first-child {
+  gap: 12px;
+  color: var(--pe-ink) !important;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.papereye-app :is(.game-topbar,.topbar,.top) :is(.brand,.box-brand)>span:first-child,
+.papereye-app :is(.game-topbar,.topbar,.top)>button:first-child>span:first-child {
+  width: 38px !important;
+  height: 38px !important;
+}
+.papereye-app :is(.close,.round-button) {
+  width: 42px !important;
+  height: 42px !important;
+  transition: transform .15s, box-shadow .15s;
+}
+.papereye-app :is(.close,.round-button):hover { transform: translate(2px,2px); box-shadow: none; }
+.papereye-app :is(.score-strip,.box-overview) { box-shadow: inset 0 -1px 0 #fff; }
+.papereye-app .score-strip { gap: 0 !important; padding: 10px 22px !important; }
+.papereye-app .score-strip > div {
+  min-height: 48px;
+  padding: 8px 15px !important;
+  border-right: 1px solid #cfcdc5;
+}
+.papereye-app .score-strip div.active {
+  transform: rotate(-.35deg);
+  box-shadow: 3px 3px 0 var(--game-accent) !important;
+}
+.papereye-app :is(.turn-panel,.roll-log,.bj-layout>aside,.y-game .layout>aside,.h-game .layout>aside,.ld-game .layout>aside) {
+  position: relative;
+  border-left-width: 4px !important;
+  box-shadow: inset 5px 0 0 #fff;
+}
+.papereye-app :is(.turn-panel,.roll-log,.bj-layout>aside,.y-game .layout>aside,.h-game .layout>aside,.ld-game .layout>aside)::before {
+  content: 'LIVE  /  SPEELTAFEL';
+  display: block;
+  margin-bottom: 22px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--pe-ink);
+  color: var(--game-accent);
+  font: 900 8px ui-monospace, monospace;
+  letter-spacing: .17em;
+}
+.papereye-app :is(.game-actions,.controls) { gap: 11px !important; }
+.papereye-app :is(.game-actions button,.controls>button,.roll,.use-roll,.center-roll,.add-round,.continue,.result>button,.reveal,.bid,.challenge,.cash,.quiet,.finish-actions button,.bj-finish footer button,.finish>div>button) {
+  min-height: 56px;
+  border-width: 3px !important;
+  box-shadow: 4px 4px 0 var(--pe-ink) !important;
+}
+.papereye-app :is(.game-actions button,.controls>button,.roll,.use-roll,.center-roll,.add-round,.continue,.result>button,.reveal,.bid,.challenge,.cash,.quiet,.finish-actions button,.bj-finish footer button,.finish>div>button):not(:disabled):active {
+  transform: translate(4px,4px);
+  box-shadow: none !important;
+}
+.papereye-app :is(.selected-card,.sum) { border-width: 2px 0 !important; border-color: var(--pe-ink) !important; }
+
+/* Boards stay tactile, but the surrounding frame now feels intentional. */
+.papereye-app :is(.board-wrap,.play-layout,.y-game .table,.bj-game .table-wrap,.h-game .felt,.ld-game .table) {
+  background-image: linear-gradient(135deg,#ffffff48 25%,transparent 25%,transparent 75%,#ffffff48 75%);
+  background-size: 8px 8px;
+}
+.papereye-app .board::before {
+  content: '';
+  position: absolute;
+  inset: 1.5%;
+  border: 1px solid #18181722;
+  border-radius: 50%;
+  box-shadow: 0 0 0 22px #ffffff20, 0 0 0 23px #18181716;
+}
+.papereye-app :is(.casino-table,.felt,.ld-game .table,.dice-tray) {
+  outline: 1px solid #fff9;
+  outline-offset: -8px;
+}
+.papereye-app .score-sheet { margin: 22px !important; background: var(--pe-white) !important; }
+
+/* Results are treated as a front page, with the winner as the headline. */
+.papereye-app :is(.finish,.box-finish,.y-finish,.bj-finish) {
+  position: relative;
+  width: min(920px, calc(100% - 48px)) !important;
+  min-height: 100vh;
+  padding: 72px 0 !important;
+}
+.papereye-app :is(.finish,.box-finish,.y-finish,.bj-finish)::before {
+  content: 'EINDUITSLAG  /  LAATSTE EDITIE';
+  width: 100%;
+  padding: 9px 0;
+  border-top: 2px solid var(--pe-ink);
+  border-bottom: 2px solid var(--pe-ink);
+  color: var(--game-accent);
+  font: 900 8px ui-monospace, monospace;
+  letter-spacing: .17em;
+}
+.papereye-app :is(.finish,.box-finish,.y-finish,.bj-finish) h1 {
+  width: 100%;
+  margin: 28px 0 12px !important;
+  line-height: .86 !important;
+}
+.papereye-app :is(.scoreboard,.final-list,.bj-finish>div) {
+  width: min(720px,100%);
+  margin-block: 28px;
+  border-width: 3px !important;
+  box-shadow: 7px 7px 0 var(--pe-ink) !important;
+}
+.papereye-app :is(.scoreboard,.final-list,.bj-finish>div) .winner {
+  position: relative;
+  transform: translateX(-7px);
+  box-shadow: 7px 0 0 var(--pe-ink);
+}
+
+@media (max-width: 760px) {
+  .papereye-app .setup > .text-button { display: inline-flex !important; }
+  .papereye-app :is(.setup,.box-setup,.y-setup,.bj-setup,.h-setup,.ld-setup)::before { display: none; }
+  .papereye-app :is(.setup-heading h1,.box-setup>h1,.y-setup>h1,.bj-setup>h1,.h-setup>h1,.ld-setup>h1) {
+    padding-right: 0 !important;
+    padding-top: 52px !important;
+  }
+  .papereye-app :is(.setup-grid) { box-shadow: 5px 5px 0 var(--pe-ink) !important; }
+  .papereye-app :is(.panel,.setup-panel) { padding: 24px 18px !important; }
+  .papereye-app :is(.game-topbar,.topbar,.top) {
+    min-height: calc(68px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) 13px 0 !important;
+    border-top-width: 5px !important;
+  }
+  .papereye-app :is(.game-topbar,.topbar,.top) > div { min-width: 0; border: 0; }
+  .papereye-app :is(.turn-panel,.roll-log,.bj-layout>aside,.y-game .layout>aside,.h-game .layout>aside,.ld-game .layout>aside) {
+    border-top-width: 4px !important;
+    box-shadow: inset 0 5px 0 #fff;
+  }
+  .papereye-app :is(.turn-panel,.roll-log,.bj-layout>aside,.y-game .layout>aside,.h-game .layout>aside,.ld-game .layout>aside)::before { margin-bottom: 14px; }
+  .papereye-app .score-sheet { margin: 10px 8px !important; }
+  .papereye-app :is(.finish,.box-finish,.y-finish,.bj-finish) { width: calc(100% - 28px) !important; padding-top: 32px !important; }
+}
