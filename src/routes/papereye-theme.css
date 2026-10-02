@@ -121,23 +121,23 @@ body, button, input, select { font-family: Georgia, serif; }
 .papereye-app :is(.start,.primary.start,.bj-setup>.primary):hover { transform: translate(5px,5px); box-shadow: none; }
 
 /* Shared game mastheads */
-.papereye-app :is(.game-topbar,.topbar,.top) {
+.papereye-app :is(.game-topbar,.topbar,header.top) {
   min-height: 76px;
   border-bottom: 4px solid var(--pe-ink) !important;
   background: var(--pe-paper) !important;
   color: var(--pe-ink) !important;
 }
-.papereye-app :is(.game-topbar,.topbar,.top) :is(.brand,.box-brand)>span:first-child,
-.papereye-app :is(.game-topbar,.topbar,.top)>button:first-child>span:first-child {
+.papereye-app :is(.game-topbar,.topbar,header.top) :is(.brand,.box-brand)>span:first-child,
+.papereye-app :is(.game-topbar,.topbar,header.top)>button:first-child>span:first-child {
   border: 2px solid var(--pe-ink) !important;
   border-radius: 0 !important;
   background: var(--game-accent) !important;
   box-shadow: 2px 2px 0 var(--pe-ink);
   color: white !important;
 }
-.papereye-app :is(.game-topbar,.topbar,.top) small,
+.papereye-app :is(.game-topbar,.topbar,header.top) small,
 .papereye-app .turn-label span { color: var(--game-accent) !important; font: 900 8px ui-monospace !important; letter-spacing: .16em; text-transform: uppercase; }
-.papereye-app :is(.game-topbar,.topbar,.top) strong { font-family: Georgia,serif; font-weight: 900; text-transform: uppercase; }
+.papereye-app :is(.game-topbar,.topbar,header.top) strong { font-family: Georgia,serif; font-weight: 900; text-transform: uppercase; }
 .papereye-app :is(.close,.round-button) { border: 2px solid var(--pe-ink) !important; border-radius: 0 !important; background: var(--pe-white) !important; box-shadow: 2px 2px 0 var(--pe-ink); }
 .papereye-app :is(.score-strip,.box-overview) { border-bottom: 2px solid var(--pe-ink) !important; background: var(--pe-newsprint) !important; }
 .papereye-app .score-strip div.active { border: 2px solid var(--pe-ink) !important; background: var(--pe-white) !important; box-shadow: 2px 2px 0 var(--game-accent); }
@@ -208,7 +208,7 @@ body, button, input, select { font-family: Georgia, serif; }
   .papereye-app :is(.setup-heading h1,.box-setup>h1,.y-setup>h1,.bj-setup>h1,.h-setup>h1,.ld-setup>h1) { padding-top: 30px !important; }
   .papereye-app :is(.setup-grid) { box-shadow: 4px 4px 0 var(--pe-ink); }
   .papereye-app :is(.panel,.setup-panel)+:is(.panel,.setup-panel) { border-left: 0 !important; border-top: 2px solid var(--pe-ink) !important; }
-  .papereye-app :is(.game-topbar,.topbar,.top) { border-bottom-width: 3px !important; }
+  .papereye-app :is(.game-topbar,.topbar,header.top) { border-bottom-width: 3px !important; }
   .papereye-app :is(.turn-panel,.roll-log,.bj-layout>aside,.y-game .layout>aside,.h-game .layout>aside,.ld-game .layout>aside) { border-left: 0 !important; border-top: 3px solid var(--pe-ink) !important; }
   .papereye-app :is(.casino-table,.felt,.ld-game .table) { box-shadow: inset 0 0 0 3px #b78756,4px 4px 0 var(--pe-ink) !important; }
 }
@@ -381,7 +381,7 @@ body { background: var(--pe-paper); }
 .papereye-app :is(.game-screen,.box-game,.y-game,.bj-game,.h-game,.ld-game,.own) {
   background: var(--pe-newsprint) !important;
 }
-.papereye-app :is(.game-topbar,.topbar,.top) {
+.papereye-app :is(.game-topbar,.topbar,header.top) {
   position: sticky;
   z-index: 50;
   top: 0;
@@ -392,7 +392,7 @@ body { background: var(--pe-paper); }
   border-bottom: 3px solid var(--pe-ink) !important;
   box-shadow: 0 3px 0 #ffffff99;
 }
-.papereye-app :is(.game-topbar,.topbar,.top) > div {
+.papereye-app :is(.game-topbar,.topbar,header.top) > div {
   align-self: stretch;
   display: flex;
   min-width: 190px;
@@ -401,15 +401,15 @@ body { background: var(--pe-paper); }
   border-right: 1px solid #d6d4cc;
   border-left: 1px solid #d6d4cc;
 }
-.papereye-app :is(.game-topbar,.topbar,.top) :is(.brand,.box-brand),
-.papereye-app :is(.game-topbar,.topbar,.top)>button:first-child {
+.papereye-app :is(.game-topbar,.topbar,header.top) :is(.brand,.box-brand),
+.papereye-app :is(.game-topbar,.topbar,header.top)>button:first-child {
   gap: 12px;
   color: var(--pe-ink) !important;
   font-size: 14px;
   text-transform: uppercase;
 }
-.papereye-app :is(.game-topbar,.topbar,.top) :is(.brand,.box-brand)>span:first-child,
-.papereye-app :is(.game-topbar,.topbar,.top)>button:first-child>span:first-child {
+.papereye-app :is(.game-topbar,.topbar,header.top) :is(.brand,.box-brand)>span:first-child,
+.papereye-app :is(.game-topbar,.topbar,header.top)>button:first-child>span:first-child {
   width: 38px !important;
   height: 38px !important;
 }
@@ -519,12 +519,12 @@ body { background: var(--pe-paper); }
   }
   .papereye-app :is(.setup-grid) { box-shadow: 5px 5px 0 var(--pe-ink) !important; }
   .papereye-app :is(.panel,.setup-panel) { padding: 24px 18px !important; }
-  .papereye-app :is(.game-topbar,.topbar,.top) {
+  .papereye-app :is(.game-topbar,.topbar,header.top) {
     min-height: calc(68px + env(safe-area-inset-top));
     padding: env(safe-area-inset-top) 13px 0 !important;
     border-top-width: 5px !important;
   }
-  .papereye-app :is(.game-topbar,.topbar,.top) > div { min-width: 0; border: 0; }
+  .papereye-app :is(.game-topbar,.topbar,header.top) > div { min-width: 0; border: 0; }
   .papereye-app :is(.turn-panel,.roll-log,.bj-layout>aside,.y-game .layout>aside,.h-game .layout>aside,.ld-game .layout>aside) {
     border-top-width: 4px !important;
     box-shadow: inset 0 5px 0 #fff;
